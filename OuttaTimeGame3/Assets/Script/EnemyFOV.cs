@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyFOV : MonoBehaviour {
+public class EnemyFOV : MonoBehaviour
+{
 
     RaycastHit target;
     float fov = 120;
@@ -12,17 +13,19 @@ public class EnemyFOV : MonoBehaviour {
     Vector3 direction;
     Quaternion rotation;
     Quaternion rotStart;
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         angleInc = fov / angleDiv;
         angleStart = fov / -2;
         rotation = Quaternion.AngleAxis(angleInc, Vector3.up);
         rotStart = Quaternion.AngleAxis(angleStart, Vector3.up);
     }
-	
-	// Update is called once per frame
-	void Update () {
-        if(Seek())
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Seek())
         {
             //write seeking player code here
             Debug.Log("AHHHH, I'm hit!");
@@ -32,7 +35,7 @@ public class EnemyFOV : MonoBehaviour {
         {
             //write idle code here
         }
-	}
+    }
 
     bool Seek()
     {
