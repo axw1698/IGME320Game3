@@ -6,13 +6,16 @@ public class EnemyFOV : MonoBehaviour
 
     RaycastHit target;
     float fov = 120;
-    int angleDiv = 12;
+    int angleDiv = 24;
     float angleInc;
     float angleStart;
-    float dist = 10.0f;
+    float dist = 6.0f;
     Vector3 direction;
     Quaternion rotation;
     Quaternion rotStart;
+    public GameObject thisGO;
+    Seeker seekerScript; // from this GameObject
+
     // Use this for initialization
     void Start()
     {
@@ -20,6 +23,8 @@ public class EnemyFOV : MonoBehaviour
         angleStart = fov / -2;
         rotation = Quaternion.AngleAxis(angleInc, Vector3.up);
         rotStart = Quaternion.AngleAxis(angleStart, Vector3.up);
+        thisGO = this.gameObject;
+        seekerScript = thisGO.GetComponent<Seeker>();
     }
 
     // Update is called once per frame
@@ -29,11 +34,13 @@ public class EnemyFOV : MonoBehaviour
         {
             //write seeking player code here
             Debug.Log("AHHHH, I'm hit!");
+            seekerScript.followPath = false;
         }
 
         else
         {
             //write idle code here
+            seekerScript.followPath = true;
         }
     }
 
