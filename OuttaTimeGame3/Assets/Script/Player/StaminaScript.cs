@@ -1,13 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class StaminaScript : MonoBehaviour {
 
-    public int staminaTotal = 20;
-    int currentStamina;
-    int restoreStamina;
-
+    public double staminaTotal = 20.0;
+    
+    double currentStamina;
+    double restoreStamina;
+    bool run;
+    FirstPersonController fpc;
+    public UnityStandardAssets.Characters.FirstPerson.FirstPersonController controller;
     bool moving;
+    float runSpeed;
 
     // time counter
     float t = 0.0f;
@@ -15,18 +20,44 @@ public class StaminaScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         currentStamina = staminaTotal;
-        restoreStamina = 2;
-
+        restoreStamina = 2.0;
+        run = false;
         moving = false;
+        fpc = GameObject.FindObjectOfType<FirstPersonController>();
+        runSpeed = fpc.m_RunSpeed;
     }
 	
 	// Update is called once per frame
 	void Update () {
-
-
-        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
+        
+        
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)||
+            Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)
+            )
         {
             moving = true;
+            // get the run bool from the script
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                print("Running now.....................");
+                run = true;
+                if (currentStamina <= 0)
+                {
+                    fpc.m_RunSpeed = fpc.m_WalkSpeed;
+
+                }
+                else
+                {
+                    fpc.m_RunSpeed = runSpeed;
+                }
+                UseStamina(0.1);
+
+                if(currentStamina <= 0)
+                {
+                    currentStamina = 0;
+                }
+                
+            }
             print("Moving now.....................");
 
         }
@@ -34,12 +65,12 @@ public class StaminaScript : MonoBehaviour {
         {
             moving = false;
             print("Stop moving.....................");
-
+           
         }
 
         if (Input.GetKeyDown(KeyCode.I))
         {
-            UseStamina(5);
+            UseStamina(5.0);
         }
 
 
@@ -64,7 +95,7 @@ public class StaminaScript : MonoBehaviour {
         }
 	}
 
-    void UseStamina(int amount)
+    void UseStamina(double amount)
     {
         currentStamina -= amount;
         print("Used Stamina...Current Stamina: " + currentStamina);
@@ -72,6 +103,6 @@ public class StaminaScript : MonoBehaviour {
 
     public int returnStamina()
     {
-        return currentStamina;
+        return (int)currentStamina;
     }
 }
