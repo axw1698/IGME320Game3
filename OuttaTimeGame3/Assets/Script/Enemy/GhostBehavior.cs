@@ -4,9 +4,12 @@ using System.Collections;
 public class GhostBehavior : MonoBehaviour {
     bool banished;
     public int radius;
+    public int deathRadius;
     Vector3 distanceToTorch;
+    Vector3 distanceToPlayer;
     Vector3 offset;
     GameObject torch;
+    public GameObject player;
     AudioSource scream;
     float floor; // the maximum distance the ghost travels before it leaves
 
@@ -23,6 +26,7 @@ public class GhostBehavior : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         CheckForTorch();
+        CheckForPlayer();
 
         if(banished)
         {
@@ -34,7 +38,7 @@ public class GhostBehavior : MonoBehaviour {
     {
         distanceToTorch = torch.transform.position - transform.position;
 
-        if(distanceToTorch.magnitude < radius)
+        if(distanceToTorch.magnitude < radius && torch.activeInHierarchy)
         {
             banished = true;
             scream.Play();
@@ -48,6 +52,17 @@ public class GhostBehavior : MonoBehaviour {
         if(transform.position.y < floor)
         {
             Destroy(this.gameObject);
+        }
+    }
+
+    void CheckForPlayer()
+    {
+        distanceToPlayer = player.transform.position - transform.position;
+
+        if (distanceToPlayer.magnitude < deathRadius)
+        {
+            Debug.Log("Now You DIE!");
+            Application.LoadLevel("death");
         }
     }
 }

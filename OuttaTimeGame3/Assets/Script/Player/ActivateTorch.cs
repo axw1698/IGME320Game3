@@ -46,6 +46,5 @@ public class ActivateTorch : MonoBehaviour {
         }
 
         Debug.Log(torchFire.activeSelf);
-
     }
 }
