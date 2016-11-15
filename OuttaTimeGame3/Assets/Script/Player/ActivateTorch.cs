@@ -12,7 +12,7 @@ public class ActivateTorch : MonoBehaviour {
     void Start () {
         torch = GameObject.Find("Torch");
         torchSource = GameObject.Find("TorchSource");
-        fireSource = GameObject.Find("fireSource");
+        fireSource = GameObject.Find("FireSouce");
         torchFire = GameObject.Find("flame");
         torchLight = GameObject.Find("torch light");
         torch.SetActive(false);
@@ -37,10 +37,14 @@ public class ActivateTorch : MonoBehaviour {
         if (torch.activeSelf && getFireDistance < 7 )
 
         {
+            print("Touch  is near fire");
             if(Input.GetKey(KeyCode.E))
             {
+                print("Press E Touch  is near fire");
+
                 torchFire.SetActive(true);
                 torchLight.SetActive(true);
+                
 
             }
         }
