@@ -118,9 +118,11 @@
     <Compile Include="Assets\Script\Enemy\Seeker.cs" />
     <Compile Include="Assets\Script\Enemy\Vehicle.cs" />
     <Compile Include="Assets\Script\Player\ActivateTorch.cs" />
+    <Compile Include="Assets\Script\Player\Dragged.cs" />
     <Compile Include="Assets\Script\Player\PlayerUIText.cs" />
     <Compile Include="Assets\Script\Player\StaminaScript.cs" />
     <Compile Include="Assets\Script\UI\AllTextFacingCamera.cs" />
+    <Compile Include="Assets\Script\UI\Button.cs" />
     <Compile Include="Assets\torch\scene\script\TorchSlider.cs" />
     <Compile Include="Assets\torch\scene\script\Torchslider2.cs" />
     <Compile Include="Assets\torch\scripts\Torchelight.cs" />
