@@ -68,10 +68,10 @@ public class StaminaScript : MonoBehaviour {
            
         }
 
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            UseStamina(5.0);
-        }
+        //if (Input.GetKeyDown(KeyCode.X))
+        //{
+        //    UseStamina(5.0);
+        //}
 
 
         if (moving == false)
@@ -95,7 +95,7 @@ public class StaminaScript : MonoBehaviour {
         }
 	}
 
-    void UseStamina(double amount)
+    public void UseStamina(double amount)
     {
         currentStamina -= amount;
         print("Used Stamina...Current Stamina: " + currentStamina);

@@ -6,6 +6,7 @@ public class Dragged : MonoBehaviour {
     GameObject Cam;
     GameObject FPC;
     GameObject skeleton;
+
 	// Use this for initialization
 	void Start () {
         Cam = GameObject.Find("DraggedCam");
@@ -30,11 +31,14 @@ public class Dragged : MonoBehaviour {
         {
             FPC.gameObject.SetActive(false);
             Cam.gameObject.SetActive(true);
+            GameObject.Find("DragScriptHolder").GetComponent<Panic>().caught = true;
+            print("Ah!");
         }
         else
         {
             FPC.gameObject.SetActive(true);
             Cam.gameObject.SetActive(false);
         }
+        
     }
 }
