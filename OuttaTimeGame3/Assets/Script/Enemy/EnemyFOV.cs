@@ -49,10 +49,10 @@ public class EnemyFOV : MonoBehaviour
         bool hitPlayer = false;
 
         direction = rotStart * transform.forward;
-        Debug.DrawLine(transform.forward, transform.forward * dist);
+        Debug.DrawLine((transform.forward + transform.position), (transform.forward * dist) + transform.position);
         for (int i = 0; i < angleDiv; i++)
         {
-            Debug.DrawLine(transform.position, direction * dist, Color.green);
+            Debug.DrawLine(transform.position, transform.position + (direction * dist), Color.green);
             if (Physics.Raycast(transform.position, direction, out target, dist))
             {
                 if (target.collider.gameObject.tag == "Player")
