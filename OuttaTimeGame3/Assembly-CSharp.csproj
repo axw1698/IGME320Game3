@@ -95,6 +95,7 @@
      <Compile Include="Assets\Script\Player\StaminaScript.cs" />
      <Compile Include="Assets\Script\UI\AllTextFacingCamera.cs" />
      <Compile Include="Assets\Script\UI\Button.cs" />
+     <Compile Include="Assets\Script\doorOpen.cs" />
      <Compile Include="Assets\Script\key.cs" />
      <Compile Include="Assets\torch\scene\script\TorchSlider.cs" />
      <Compile Include="Assets\torch\scene\script\Torchslider2.cs" />
