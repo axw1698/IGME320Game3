@@ -27,7 +27,8 @@ public class Panic : MonoBehaviour {
             {
                 if (panic >= 4)
                 {
-                    player.gameObject.SetActive(true);
+                    GameObject.Find("FPSController").GetComponent<Dragged>().abc = new Vector3(1, 0, 1);
+                    //player.gameObject.SetActive(true);
                     GameObject.Find("ScriptHolder").GetComponent<StaminaScript>().UseStamina(5.0);
                     print("Escaped!");
                     panic = 0;

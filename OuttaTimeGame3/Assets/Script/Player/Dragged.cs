@@ -6,39 +6,61 @@ public class Dragged : MonoBehaviour {
     GameObject Cam;
     GameObject FPC;
     GameObject skeleton;
+    GameObject ghost;
+
+    public Vector3 abc;
+
+    public Seeker mySeek;
 
 	// Use this for initialization
 	void Start () {
         Cam = GameObject.Find("DraggedCam");
         FPC = GameObject.Find("FPSController");
         skeleton = GameObject.Find("skeletonController");
+        ghost = GameObject.Find("Ghost");
         Cam.gameObject.SetActive(false);
+
+        abc = new Vector3(0.5f, 0, 0.5f);
+
+        mySeek = skeleton.GetComponent<Seeker>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-  
-        Vector3 camPos = new Vector3(skeleton.transform.position.x - 2, skeleton.transform.position.y, skeleton.transform.position.z);
-        float lookDown = Input.GetAxis("Vertical") * 30.0f;
-        float dragZ = skeleton.transform.rotation.z;
-        Quaternion target = Quaternion.Euler(lookDown, 0, dragZ);
 
-        Cam.transform.position = camPos;
-        Cam.transform.rotation = target;
+        Vector3 camPos = new Vector3(skeleton.transform.position.x, skeleton.transform.position.y, skeleton.transform.position.z - 2.0f);
+        //float lookDown = Input.GetAxis("Vertical") * 30.0f;
+        //float dragZ = skeleton.transform.rotation.z;
+        //Quaternion target = Quaternion.Euler(lookDown, 0, dragZ);
 
+        //Cam.transform.position = camPos;
+        //Cam.transform.rotation = target;
+        
         float dragDistance = Vector3.Distance(transform.position, skeleton.transform.position);
-        if(dragDistance <= 1.5f)
+        if(dragDistance <= 1.2f)
         {
-            FPC.gameObject.SetActive(false);
-            Cam.gameObject.SetActive(true);
-            GameObject.Find("DragScriptHolder").GetComponent<Panic>().caught = true;
+            //FPC.gameObject.SetActive(false);
+            //Cam.gameObject.SetActive(true);
+
+            mySeek.followPath = false;
+            mySeek.seekerTarget = ghost;
+
+            this.GetComponent<Panic>().caught = true;
             print("Ah!");
+
+            //Cam.transform.position = skeleton.transform.position;
+            transform.position = skeleton.transform.position - abc;
         }
         else
         {
-            FPC.gameObject.SetActive(true);
-            Cam.gameObject.SetActive(false);
+            //FPC.gameObject.SetActive(true);
+            //Cam.gameObject.SetActive(false);
+
+            //transform.position = skeleton.transform.position - abc;
+
+            mySeek.followPath = true;
+            mySeek.seekerTarget = FPC;
         }
-        
+
     }
 }

@@ -1,10 +1,10 @@
-using UnityEngine;
+ using UnityEngine;
 using System.Collections;
 
 public class Seeker : Vehicle {
 
     //Should it move?
-    public bool followPath;
+    public bool followPath = true;
 
     // Waypoints
     public Waypoint[] path;
@@ -22,6 +22,9 @@ public class Seeker : Vehicle {
     private int currentNode = 0;
 
     public GameObject seekerTarget;
+    public GameObject cam;
+
+
     public Waypoint waypointTarget;
 
 	//WEIGHTING!!!!!!!!!!!!
@@ -47,8 +50,9 @@ public class Seeker : Vehicle {
         maxForce = 14.0f;
         maxSpeed = 10f;
 
+        cam = GameObject.Find("FPSController");
+
         isCat = false;
-        followPath = true;
 
         startingPosition = gameObject.transform.position;
         
@@ -63,7 +67,6 @@ public class Seeker : Vehicle {
         path[4] = new Waypoint(GameObject.Find("WP4").transform.position, GameObject.Find("WP5").transform.position);
         path[5] = new Waypoint(GameObject.Find("WP5").transform.position, GameObject.Find("WP6").transform.position);
         path[6] = new Waypoint(GameObject.Find("WP6").transform.position, GameObject.Find("WP0").transform.position);
-        
     }
 
     protected override void CalcSteeringForces()
@@ -72,7 +75,7 @@ public class Seeker : Vehicle {
 		ultimateForce = Vector3.zero;
 
         //Am I set to follow a path? Does the paths have points?
-        if (followPath)
+        if (followPath )//&& cam.active == true)
         {
             // Get the waypoint
             waypointTarget = path[currentNode];
