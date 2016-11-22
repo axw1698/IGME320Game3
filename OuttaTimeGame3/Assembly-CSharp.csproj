@@ -88,6 +88,7 @@
      <Compile Include="Assets\Script\Enemy\GhostBehavior.cs" />
      <Compile Include="Assets\Script\Enemy\Seeker.cs" />
      <Compile Include="Assets\Script\Enemy\Vehicle.cs" />
+     <Compile Include="Assets\Script\Enemy\Waypoint.cs" />
      <Compile Include="Assets\Script\Player\ActivateTorch.cs" />
      <Compile Include="Assets\Script\Player\Dragged.cs" />
      <Compile Include="Assets\Script\Player\Panic.cs" />
@@ -97,6 +98,7 @@
      <Compile Include="Assets\Script\UI\Button.cs" />
      <Compile Include="Assets\Script\doorOpen.cs" />
      <Compile Include="Assets\Script\key.cs" />
+     <Compile Include="Assets\Script\xButton.cs" />
      <Compile Include="Assets\torch\scene\script\TorchSlider.cs" />
      <Compile Include="Assets\torch\scene\script\Torchslider2.cs" />
      <Compile Include="Assets\torch\scripts\Torchelight.cs" />
@@ -175,11 +177,17 @@
      <None Include="Assets\L_FG_Assets_Pack_Lite\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
      <None Include="Assets\Model\Campfire\License.txt" />
      <None Include="Assets\L_FG_Assets_Pack_Lite\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendForBloom.shader" />
+ <Reference Include="UnityEngine.Advertisements">
+ <HintPath>E:/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>E:/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>E:/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>E:/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Cecil">
  <HintPath>E:/Unity/Editor/Data/Managed/Mono.Cecil.dll</HintPath>
