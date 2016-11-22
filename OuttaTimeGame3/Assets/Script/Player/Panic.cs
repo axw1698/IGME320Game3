@@ -23,6 +23,8 @@ public class Panic : MonoBehaviour {
         if (caught)
         {
             print("Let go of me!" + panic);
+            GameObject.Find("FPSController").GetComponent<Dragged>().abc = new Vector3(0.5f, 0, 0.5f);
+
             if (Input.GetKeyDown(KeyCode.X))
             {
                 if (panic >= 4)
@@ -32,6 +34,7 @@ public class Panic : MonoBehaviour {
                     GameObject.Find("ScriptHolder").GetComponent<StaminaScript>().UseStamina(5.0);
                     print("Escaped!");
                     panic = 0;
+
                 }
                 else
                 {
@@ -39,6 +42,8 @@ public class Panic : MonoBehaviour {
                     panic++;
                 }
             }
+
         }
-	}
+
+    }
 }

@@ -7,6 +7,7 @@ public class Dragged : MonoBehaviour {
     GameObject FPC;
     GameObject skeleton;
     GameObject ghost;
+    GameObject xSprite;
 
     public Vector3 abc;
 
@@ -18,6 +19,7 @@ public class Dragged : MonoBehaviour {
         FPC = GameObject.Find("FPSController");
         skeleton = GameObject.Find("skeletonController");
         ghost = GameObject.Find("Ghost");
+        xSprite = GameObject.Find("X");
         Cam.gameObject.SetActive(false);
 
         abc = new Vector3(0.5f, 0, 0.5f);
@@ -45,7 +47,9 @@ public class Dragged : MonoBehaviour {
             mySeek.followPath = false;
             mySeek.seekerTarget = ghost;
 
-            this.GetComponent<Panic>().caught = true;
+            FPC.GetComponent<Panic>().caught = true;
+            xSprite.SetActive(true);
+
             print("Ah!");
 
             //Cam.transform.position = skeleton.transform.position;
@@ -60,6 +64,9 @@ public class Dragged : MonoBehaviour {
 
             mySeek.followPath = true;
             mySeek.seekerTarget = FPC;
+            FPC.GetComponent<Panic>().caught = false;
+            xSprite.SetActive(false);
+
         }
 
     }
