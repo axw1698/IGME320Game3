@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 5e3263fa26f146943bd2fa63c166b33a
-timeCreated: 1479389401
+timeCreated: 1480422205
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -58,9 +58,9 @@ TextureImporter:
         x: 0
         y: 0
         width: 128
-        height: 128
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: xButton_1
       rect:
@@ -68,9 +68,9 @@ TextureImporter:
         x: 128
         y: 0
         width: 128
-        height: 128
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
