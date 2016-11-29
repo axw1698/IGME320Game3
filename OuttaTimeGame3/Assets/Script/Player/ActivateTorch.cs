@@ -15,13 +15,14 @@ public class ActivateTorch : MonoBehaviour {
         fireSource = GameObject.Find("FireSouce");
         torchFire = GameObject.Find("flame");
         torchLight = GameObject.Find("torch light");
-        torch.SetActive(false);
         torchFire.SetActive(false);
         torchLight.SetActive(false);
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        torch.SetActive(false);
+
+    }
+
+    // Update is called once per frame
+    void Update () {
 
         float getTorchDistance = Vector3.Distance(transform.position, torchSource.transform.position);
         if(getTorchDistance < 7)
