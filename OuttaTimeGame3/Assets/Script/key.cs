@@ -42,6 +42,7 @@ public class key : MonoBehaviour {
                     questionMark.SetActive(false);
                     GameObject.Find("doorRight").GetComponent<doorOpen>().withKey = true;
                     GameObject.Find("doorLeft").GetComponent<doorOpen>().withKey = true;
+                    GameObject.Find("FPSController").GetComponent<HintText>().withKey = true;
 
                 }
             }
