@@ -52,7 +52,7 @@ public class Seeker : Vehicle {
 
         cam = GameObject.Find("FPSController");
 
-        isCat = false;
+     
 
         startingPosition = gameObject.transform.position;
         
