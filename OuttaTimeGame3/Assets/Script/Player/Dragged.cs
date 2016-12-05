@@ -24,7 +24,7 @@ public class Dragged : MonoBehaviour {
         xSprite = GameObject.Find("X");
         //Cam.gameObject.SetActive(false);
 
-        abc = new Vector3(0.5f, 0, 0.5f);
+        abc = new Vector3(2.0f, 0, 2.0f);
 
         mySeek = skeleton.GetComponent<Seeker>();
 
@@ -66,8 +66,10 @@ public class Dragged : MonoBehaviour {
 
 				print ("Ah!");
 
-				//Cam.transform.position = skeleton.transform.position;
-				transform.position = skeleton.transform.position - abc;
+               
+
+                //Cam.transform.position = skeleton.transform.position;
+                transform.position = skeleton.transform.position - abc;
 			} 
 			else {
 				//FPC.gameObject.SetActive(true);
