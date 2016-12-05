@@ -15,7 +15,7 @@ public class EnemyFOV : MonoBehaviour
     Quaternion rotStart;
     public GameObject thisGO;
     Seeker seekerScript; // from this GameObject
-
+    GameObject fire; // check if player is holding fire
     // Use this for initialization
     void Start()
     {
@@ -25,6 +25,7 @@ public class EnemyFOV : MonoBehaviour
         rotStart = Quaternion.AngleAxis(angleStart, Vector3.up);
         thisGO = this.gameObject;
         seekerScript = thisGO.GetComponent<Seeker>();
+        fire = GameObject.Find("torch light");
     }
 
     // Update is called once per frame
@@ -32,9 +33,13 @@ public class EnemyFOV : MonoBehaviour
     {
         if (Seek())
         {
-            //write seeking player code here
-            Debug.Log("AHHHH, I'm hit!");
-            seekerScript.followPath = false;
+
+            if (fire.activeSelf == false)
+            {
+                //write seeking player code here
+                Debug.Log("AHHHH, I'm hit!");
+                seekerScript.followPath = false;
+            }
         }
 
         else

@@ -23,6 +23,10 @@ public class HintText : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         Text currectText = text.GetComponent<Text>();
+        if (withKey == true)
+        {
+            messageState = 7;
+        }
         switch (messageState)
         {
             case 0:
@@ -107,6 +111,11 @@ public class HintText : MonoBehaviour {
                     messageState = 7;
                 }
                 break;
+
+            case "End":
+                Application.LoadLevel("Win");
+                break;
+
         }
     }
 }

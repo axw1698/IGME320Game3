@@ -51,7 +51,8 @@ public class GhostBehavior : MonoBehaviour {
 
         if(transform.position.y < floor)
         {
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
         }
     }
 

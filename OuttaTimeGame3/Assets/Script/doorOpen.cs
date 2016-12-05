@@ -19,31 +19,28 @@ public class doorOpen : MonoBehaviour {
         print("FPSController");
         if (this.thisGO.name == "doorRight")
         {
-            float doorRightDis = Vector3.Distance(transform.position, thisGO.transform.position);
-            if (doorRightDis < 5)
+            float doorRightDis = Vector3.Distance(GameObject.Find("FPSController").transform.position, thisGO.transform.position);
+            if (doorRightDis < 6)
             {
                 print("In distance");
                 if (withKey == true)
                 {
-                    if (Input.GetKey(KeyCode.E))
-                    {
-                        openDoor = true;
-                    }
+                       openDoor = true;
+                    
                 }
             }
         }
         if (this.thisGO.name == "doorLeft")
         {
-            float doorLeftDis = Vector3.Distance(transform.position, thisGO.transform.position);
-            if (doorLeftDis < 5)
+            float doorLeftDis = Vector3.Distance(GameObject.Find("FPSController").transform.position, thisGO.transform.position);
+            if (doorLeftDis < 6)
             {
                 print("In distance");
                 if (withKey == true)
                 {
-                    if (Input.GetKey(KeyCode.E))
-                    {
-                        openDoor = true;
-                    }
+                    
+                    openDoor = true;
+                    
                 }
             }
         }
