@@ -30,32 +30,31 @@ public class HintText : MonoBehaviour {
         switch (messageState)
         {
             case 0:
-                currectText.text = "Hmm......how can I get out of this place.....?";
+                currectText.text = "Ow...my arm...I gotta get out of here...";
                 break;
             case 1:
-                currectText.text = "The skeleton looks danger.... I should probably avoid it...";
+                currectText.text = "?! I oughta avoid that monster...";
 
                 break;
             case 2:
-                currectText.text = "The demon over there is protecting something. It might be the key to escape!";
+                currectText.text = "What is the demon guarding?";
 
                 break;
             case 3:
-                currectText.text = "I need to find a way to make the demon disappear";
+                currectText.text = "I need to find something to ward off the demon.";
 
                 break;
             case 4:
-                currectText.text = "Trees..? Maybe I can find something useful...";
+                currectText.text = "Maybe I can find something useful on this tree. A wooden spear, heh...";
                 break;
             case 5:
-                currectText.text = "Torch...... I need to find a way to light it up.";
+                currectText.text = "A torch? Well, better than nothing. Gotta find something to light it.";
                 break;
             case 6:
-                currectText.text = "This might work !";
-
+                currectText.text = "This could work...";
                 break;
             case 7:
-                currectText.text = "I got the key ！ I can finally leave this place";
+                currectText.text = "A key! This should open the exit gates.";
                 break;
         }
 
