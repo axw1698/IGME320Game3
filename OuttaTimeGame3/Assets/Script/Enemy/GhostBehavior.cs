@@ -16,7 +16,7 @@ public class GhostBehavior : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         banished = false;
-        torch = GameObject.Find("Torch");
+        torch = GameObject.Find("flame");
         floor = -60.0f;
         offset = new Vector3(0, 0.3f, 0);
         scream = GetComponent<AudioSource>();
