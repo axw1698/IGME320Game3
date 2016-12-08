@@ -33,6 +33,7 @@ public class Dragged : MonoBehaviour
         trigger = GameObject.Find("something");
         skeleton = GameObject.Find("skeletonController");
         skeleton.SetActive(false);
+        xSprite.SetActive(false);
 
         fire = GameObject.Find("torch light");
     }
@@ -69,7 +70,7 @@ public class Dragged : MonoBehaviour
 
                 FPC.GetComponent<Panic>().caught = true;
                 Cam.transform.LookAt(LookTarget.transform);
-                //xSprite.SetActive(true);
+                xSprite.SetActive(true);
 
                 print("Ah!");
 
@@ -88,7 +89,7 @@ public class Dragged : MonoBehaviour
                 mySeek.followPath = true;
                 mySeek.seekerTarget = FPC;
                 FPC.GetComponent<Panic>().caught = false;
-                //xSprite.SetActive(false);
+                xSprite.SetActive(false);
 
             }
         }
