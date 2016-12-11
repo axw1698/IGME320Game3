@@ -9,6 +9,9 @@ public class Seeker : Vehicle {
     // Waypoints
     public Waypoint[] path;
 
+    // Obstacles
+    public GameObject[] obstacles;
+
 
     //Also not sure why I need this
     //Starting from where?
@@ -32,7 +35,7 @@ public class Seeker : Vehicle {
 	public float alignWeight = 20.0f;
 	public float cohesionWeight = 20.0f;
 	public float seperationWeight = 20.0f;
-	public float avoidWeight = 120.0f;
+	public float avoidWeight = 25.0f;
 
 
 	//Ultimate force the will be applyed
@@ -40,7 +43,7 @@ public class Seeker : Vehicle {
 
 
 	//Safe distance
-	public float safeDistance = 10.0f;
+	public float safeDistance = 5.0f;
 
 
 	// Call Inherited Start and then do our own
@@ -51,8 +54,6 @@ public class Seeker : Vehicle {
         maxSpeed = 10f;
 
         cam = GameObject.Find("FPSController");
-
-     
 
         startingPosition = gameObject.transform.position;
         
@@ -67,6 +68,9 @@ public class Seeker : Vehicle {
         path[4] = new Waypoint(GameObject.Find("WP4").transform.position, GameObject.Find("WP5").transform.position);
         path[5] = new Waypoint(GameObject.Find("WP5").transform.position, GameObject.Find("WP6").transform.position);
         path[6] = new Waypoint(GameObject.Find("WP6").transform.position, GameObject.Find("WP0").transform.position);
+
+        // Obstacles
+        obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
     }
 
     protected override void CalcSteeringForces()
@@ -80,7 +84,14 @@ public class Seeker : Vehicle {
             // Get the waypoint
             waypointTarget = path[currentNode];
 
+            // Calculate steering force
             Vector3 steeringForce = Seek(waypointTarget.GetStart) * seekWeight;
+
+            // Get avoiding force
+            for (int i = 0; i < obstacles.Length; i++)
+            {
+                steeringForce += AvoidObstacle(obstacles[i], safeDistance) * avoidWeight;
+            }
 
             // Limit the steering force
             steeringForce = Vector3.ClampMagnitude(steeringForce, maxForce);
