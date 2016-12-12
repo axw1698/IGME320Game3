@@ -56,6 +56,9 @@ public class HintText : MonoBehaviour {
             case 7:
                 currectText.text = "A key! This should open the exit gates.";
                 break;
+            case 8:
+                currectText.text = "The skeleton will catch me back to the demon.... I need to avoid it..";
+                break;
         }
 
         
@@ -109,6 +112,9 @@ public class HintText : MonoBehaviour {
                 {
                     messageState = 7;
                 }
+                break;
+            case "stage0":
+                    messageState = 8;              
                 break;
 
             case "End":

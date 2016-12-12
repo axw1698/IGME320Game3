@@ -14,7 +14,7 @@ public class EnemyFOV : MonoBehaviour
     Quaternion rotation;
     Quaternion rotStart;
     public GameObject thisGO;
-    Seeker seekerScript; // from this GameObject
+    //Seeker seekerScript; // from this GameObject
     GameObject fire; // check if player is holding fire
     // Use this for initialization
     void Start()
@@ -24,7 +24,7 @@ public class EnemyFOV : MonoBehaviour
         rotation = Quaternion.AngleAxis(angleInc, Vector3.up);
         rotStart = Quaternion.AngleAxis(angleStart, Vector3.up);
         thisGO = this.gameObject;
-        seekerScript = thisGO.GetComponent<Seeker>();
+        //seekerScript = thisGO.GetComponent<Seeker>();
         fire = GameObject.Find("torch light");
     }
 
@@ -38,14 +38,32 @@ public class EnemyFOV : MonoBehaviour
             {
                 //write seeking player code here
                 Debug.Log("AHHHH, I'm hit!");
-                seekerScript.followPath = false;
+                //seekerScript.followPath = false;
+                if(thisGO.name == "skeletonController")
+                {
+                    thisGO.GetComponent<Seeker>().followPath = false;
+                }
+                else
+                {
+                    thisGO.GetComponent<Seeker1>().followPath = false;
+
+                }
             }
         }
 
         else
         {
             //write idle code here
-            seekerScript.followPath = true;
+            //seekerScript.followPath = true;
+            if (thisGO.name == "skeletonController")
+            {
+                thisGO.GetComponent<Seeker>().followPath = true;
+            }
+            else
+            {
+                thisGO.GetComponent<Seeker1>().followPath = true;
+
+            }
         }
     }
 
